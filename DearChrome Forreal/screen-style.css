@@ -1,0 +1,181 @@
+@media screen{
+
+/*===BIG STUFF===*/
+
+html{
+	height:100%;
+	width:100%;
+}
+
+body{
+	margin:15px;
+	height:100%;
+	width:100%;
+	text-align: center;
+	font-family: 'Karla', sans-serif;
+	overflow-x: hidden;
+}
+
+
+h1{
+	padding-top:15px;
+	font-size:18px;
+	text-decoration:underline;
+}
+
+
+
+
+/*===PAGES===*/
+
+.pageContainer{
+	width:1400px;
+	page-break-after:always;
+}
+
+
+
+
+/*===COLOR TESTS===*/
+
+.swatchContainer{
+	width:175px;
+	display:inline-block;
+	margin-right:12px;
+
+}
+
+.colorSwatch{
+	height:74px;
+	width:100%;
+	margin:0px 0px 12px 0px;
+	text-align:center;
+}
+
+.colorDot{
+	width:5px;
+	height:5px;
+	border-radius:50%;
+	margin:10px;
+	display:inline-block;
+}
+
+.noMargin{
+	margin:none;
+}
+
+.colorSwatch p{
+	font-family: Arial; 
+	font-size: 10px;
+	padding-top:17px;
+	color:black;
+/*	text-shadow:black 1px 1px;
+*/}
+
+
+
+
+
+/*===TEXT TESTS===*/
+
+.textContainer{
+	width:200px;
+	display:inline-block;
+	margin-right:25px;
+}
+
+.textBlock{
+	padding:25px;
+	margin-top:25px;
+	font-family:Arial;
+}
+
+.textBlock p{
+	font-size:16px;
+	line-height:24px;
+}
+
+.textBlock h1{
+	text-decoration: underline;
+	padding-bottom:5px;
+}
+
+
+
+
+/*===INTERACTIVE===*/
+
+
+.infoContainer{
+	text-align:left;
+
+	padding:15px;
+	width:250px;
+	position:fixed;
+	top:0;
+	left:0;
+}
+
+.infoContainer h1{
+	color: blue;
+}
+
+.infoContainer p{
+	font-size: 10px;
+}
+
+.infoContainer a{
+	font-size:14px;
+	font-weight:bold;
+	margin-bottom:10px;
+}
+
+#colorSwatch{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width:100px;
+	height:100px;
+	background-color: rgba(0,0,0,0.05);
+
+}
+
+
+
+/*===INTRO PAGE===*/
+
+.introContainer {
+	margin:auto;
+	margin-top: 100px;
+	width:35%;
+
+}
+.introContainer h1{
+	padding-bottom:1.5em;
+	font-weight: bold;
+	font-size: 36px;
+}
+.introContainer p{
+	text-align: left;
+	line-height: 1.5em;
+}
+
+.introContainer ul {
+	text-align:left;
+}
+.introContainer ul li {
+	padding-top:15px;
+}
+
+.introContainer ul li a{
+	font-size:24px;
+	font-weight: bold;
+	color: black;
+	color: black;
+}
+
+#buildVer{
+	font-size:10px;
+}
+
+
+}

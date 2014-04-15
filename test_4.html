@@ -1,0 +1,93 @@
+
+<html>
+
+	<head>
+		<title>Circles</title>
+		<style>
+			body { margin: 0pc; padding:0;}
+			/* Overflow, rgba, float/position, classes, recursive */
+
+			body>div {
+				overflow: hidden; margin-bottom: 0; padding: 0;
+				float: left;
+				/*defaults for containers */
+			}
+
+			.container1 div:nth-child(2n) {
+				-webkit-transform: rotate(0);
+			}
+			.container1{
+			position: absolute; top: 0; left:0;
+ 			width: 68pc; height: 126pc; border: 0;  overflow: hidden;  } /* 13.5 inches */
+
+            .container2{
+            position: absolute; top: 0; left:0;
+ 			width: 68pc; height: 126pc; border: 0;  overflow: hidden;
+                top: 9pt; -webkit-transform: rotate(3deg);
+            }
+			.container1 div  {
+				margin: -11pt;
+				border: 25pt dashed rgba(43, 58, 17, 0.8);
+				border-radius: 50%;
+				width: 51pt; height: 50pt;
+				float: left;
+			}
+			.container2 div  {
+				margin: -11pt;
+				border: 28pt dashed rgb(42, 107, 138);
+				border-radius: 50%;
+				-webkit-transform: rotate(94deg);
+                width: 51pt; height: 50pt;
+                float: left;
+            }
+
+        </style>
+
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script>
+            $(document).ready(function(){
+                for(var i = 0; i<850; i++){
+                    $(".container2").append("<div></div>");
+                    $(".container1").append("<div></div>");
+                }
+
+                var loadjs = function(filename){
+                    var fileref=document.createElement('script');
+                    fileref.setAttribute("type","text/javascript");
+                    fileref.setAttribute("src", filename);
+                    document.getElementsByTagName("head")[0].appendChild(fileref);
+                }
+                // from http://www.javascriptkit.com/javatutors/loadjavascriptcss.shtml
+                // dynamic .js loading
+
+                //loadjs("print.js");
+
+            });
+        </script>
+        <script src="print.js"></script>
+    </head>
+
+    <body>
+        <div class="container2">
+            <!--<script>
+                i=0;
+                do {
+                document.write("<div></div>");
+                i++;
+                }
+                while (i<850)
+  			</script>-->
+            <div></div>
+		</div>
+		<div class="container1">
+			<!--<script>
+				i=0;
+				do {
+				  document.write("<div></div>");
+				  i++;
+				  }
+				while (i<850)
+  			</script> -->
+		</div>
+	</body>
+</html>

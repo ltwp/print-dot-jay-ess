@@ -1,0 +1,55 @@
+
+<html>
+
+	<head>
+		<title>Template</title>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+		<style>
+			body { margin: 0pc; padding:0; }
+			/* Overflow, rgba, float/position, classes, recursive */
+
+			body>div {
+				overflow: hidden; margin-bottom: 0; padding: 0;
+				float: left;
+				/*defaults for containers */
+			}
+
+			body>div div:nth-child(3n) {
+				margin-left: -3pt;
+				-webkit-transform: rotate(7deg);
+ 			}
+			body>div div:nth-child(2n) {
+				margin-left: -3pt;
+				-webkit-transform: rotate(267deg);
+ 			}
+			.container { width: 68pc; height: 126pc; border: 0;  overflow: hidden;  } /* 13.5 inches */
+
+			body div  {
+				font-size: 103pt;
+				overflow: hidden;
+				margin-top: -37pt;
+				float: left;
+				color: purple;
+				width: 44pt;
+				height: 59pt;
+			}
+
+        </style>
+        <script>
+            $(document).ready(function(){
+                for(var i = 0; i<850; i++){
+                    $(".container").append("<div>*</div>");
+                }
+            });
+        </script>
+    </head>
+
+
+	<body>
+		<div class="container">
+
+		</div>
+	</body>
+
+		<!-- a comment in html -->
+</html>

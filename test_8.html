@@ -1,0 +1,65 @@
+
+<html>
+
+	<head>
+		<title>Template</title>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+		<style>
+			body { margin: -1pc; padding:0; }
+			/* Overflow, rgba, float/position, classes, recursive */
+
+			body>div {
+				overflow: hidden; margin-bottom: 0; padding: 0;
+				float: left;
+				/*defaults for containers */
+			}
+
+			body>div div:nth-child(even) {
+				-moz-transform: rotate(15deg);
+				-webkit-transform: rotate(15deg);
+ 			}
+			body>div div:nth-child(3n) {
+				-moz-transform: rotate(30deg);
+				-webkit-transform: rotate(30deg);
+ 			}
+			body>div div:nth-child(4n) {
+				-moz-transform: rotate(-40deg);
+				-webkit-transform: rotate(-40deg);
+ 			}
+			.container { width: 68pc; height: 100pc; border: 0;  overflow: hidden;  } /* 13.5 inches */
+
+			body>div div  {
+				overflow: hidden;
+				width: 70pt; height: 66pt;
+                font-size: 172pt;
+                margin-top: -26pt;
+                float: left;
+            }
+
+        </style>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script>
+            $(document).ready(function(){
+                for(var i = 0; i<450; i++){
+                    $(".container").append("<div>f</div>");
+                }
+            });
+        </script>
+        <script src="print.js"></script>
+	</head>
+
+	<body>
+		<div class="container">
+			<!--<script>
+				i=0;
+				do {
+				  document.write("<div>f</div>");
+				  i++;
+				  }
+				while (i<450)
+  			</script>-->
+		</div>
+	</body>
+
+		<!-- a comment in html -->
+</html>
