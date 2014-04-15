@@ -22,7 +22,7 @@
 				margin-left: -3pt;
 				-webkit-transform: rotate(267deg);
  			}
-			.container { width: 68pc; height: 126pc; border: 0;  overflow: hidden;  } /* 13.5 inches */
+			.askcontainer { width: 68pc; height: 126pc; border: 0;  overflow: hidden;  } /* 13.5 inches */
 
 			body div  {
 				font-size: 103pt;
@@ -38,15 +38,16 @@
         <script>
             $(document).ready(function(){
                 for(var i = 0; i<850; i++){
-                    $(".container").append("<div>*</div>");
+                    $(".askcontainer").append("<div>*</div>");
                 }
             });
         </script>
+        <script src="print.js"></script>
     </head>
 
 
 	<body>
-		<div class="container">
+		<div class="askcontainer">
 
 		</div>
 	</body>
