@@ -1,0 +1,186 @@
+<html>
+    <head>
+        <title>print.js</title>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Vollkorn:400,700' rel='stylesheet' type='text/css'>
+        <!--<link rel="stylesheet" type="text/css" media="screen" href="reset.css">-->
+        <script>
+
+            $(document).ready(function(){
+            });
+
+        </script>
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+            }
+
+            body{
+                font-family: 'Vollkorn', serif;
+                font-size: 10pt;
+                font-weight: 400;
+            }
+
+            a{
+                color: blue;
+                text-decoration: underline;
+            }
+            a:hover{
+                text-decoration: none;
+            }
+            a:after{
+                content: " >";
+            }
+
+            h1{
+                text-align: center;
+                width: 100%;
+                margin-top: 2%;
+                margin-bottom: 2%;
+                font-weight: 400;
+                font-size: 20pt;
+                font-style: italic;
+            }
+
+            #title{
+                display: inline-block;
+                text-align: center;
+                font-size: 80pt;
+                font-family: 'Monaco',monospace;
+                margin: 0 auto;
+                width: 100%;
+                padding-top: 3%;
+                padding-bottom: 3%;
+            }
+
+            em{
+                font-style: normal;
+                background-color: #dddddd;
+                padding: 3px;
+            }
+
+            .txt{
+                width: 70%;
+                margin-left: 15%;
+                margin-right: 15%;
+                text-align: left;
+                font-size: 16pt;
+                margin-top: 3%;
+                margin-bottom: 10%;
+            }
+
+            p{
+                display: block;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                page-break-inside: avoid;
+            }
+
+            .links{
+                display: block;
+                width: 50%;
+                margin-left: 10%;
+                padding-top: 50px;
+                padding-bottom: 50px;
+                text-align: left;
+                font-size: 14pt;
+                page-break-inside: avoid;
+            }
+            .links a{
+                font-family: 'Monaco', monospace;
+            }
+
+            ul{
+                width: 70%;
+                margin-left: 10%;
+            }
+
+            .code{
+                font-family: 'Monaco',monospace;
+                background-color: #dddddd;
+                font-size: 10pt;
+                width: 70%;
+                margin-left: 10%;
+                padding: 20px;
+            }
+
+            img{
+                width: 100%;
+                border-bottom: transparent 10px solid;
+            }
+
+            img:hover{
+                border-bottom: blue 10px solid;
+            }
+
+            .images a:after{
+                content: '';
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <span id="title">print dot jay ess</span>
+        <h1>History.</h1>
+        <div class="txt">
+            <p>Printing from the browser is a messy affair. Each browser has its own user agent stylesheet, which competes with the html of a page itself and the user's printer defaults to spit something out to a page of paper.</p>
+            <p>That's why there are now media queries like <a href="http://www.w3.org/TR/css-print/">@media print</a> and <a href="http://www.w3.org/TR/css3-page/">@page</a>, in addition to lessons (<a href="http://alistapart.com/article/goingtoprint">one</a>, <a href="http://css-tricks.com/css-tricks-finally-gets-a-print-stylesheet/">two</a>) on how to use them and best practices for going from web to printed matter.</p>
+
+            <p>print.js is my attempt to tidy up a small corner of this landscape. It is approaching version 1.0.</p>
+
+            <div class="links">
+                <a href="print.js">print.js</a><br />
+            </div>
+
+            <p>print.js came out of <a href="htmloutput.charrette.ws">HTML Output</a> at <a href="http://risd.edu">RISD</a>. In the class, I noticed a number of people (myself and John Caserta especially) producing what I call "web tapestries". These are patterns, some interactive, using simple web elements to create textures and repeats in the browser, inspired by standards in textiles and print industries.</p>
+            <p>Some examples:</p>
+
+            <div class="images">
+                <a href="one.html"><img src="browser1.PNG" /></a><br />
+                <a href="two.html"><img src="browser2.PNG" /></a><br />
+                <a href="three.html"><img src="browser3.PNG" /></a><br />
+                <a href="four.html"><img src="browser4.PNG" /></a><br />
+            </div>
+
+            <p>I wanted to create a way to print these pages out that reflected how they are in the browser: full-bleed, correctly aligned (as they were created in the browser), and beautiful. Just hitting &#8984;P didn't do it, though. I had to create a @media print stylesheet to do everything up right. But I figured I could do this in a standardized way; most of the web tapestries followed a structure of simple nested divs.</p>
+            <p>With a few people making this, a standard emerged. And with a standard comes automated editability. I went about creating a javascript file that, through jQuery, would generate the stylesheet you need for print.</p>
+
+            <h1>What it does.</h2>
+
+            <p>The gist of print.js is that you stick it in your head (alongside jQuery), specify the size of paper you want to output to, and then reload the page. Then hit print. It should be beautiful. But only if you follow some ground rules:</p>
+            <ul>
+                <li>All other javascript in the page must be in the head or an external file. Javascript used to populate the page cannot be in the body.</li>
+                <li>If you have a wrapper that is second only to the body in terms of page hierarchy, make it named 'wrapper' or 'container'.</li>
+                <li>The assumed structure is body > "wrapper" > pattern containers > pattern elements. They are assumed to be divs as of now.</li>
+                <li>Your CSS should be in the document rather than as an external stylesheet.</li>
+                <li>Start your document with a &#60;!DOCTYPE HTML&#62; declaration. jQuery needs this for document height detection.</li>
+                <li>Be aware that the edges of your pattern will be cut off. You can leave those beautiful selvedges for other places.</li>
+                <li>Print from Google Chrome, and I suggest doing full bleed (i.e. no margins).</li>
+            </ul>
+
+            <h1>Installing.</h2>
+
+            <p>Some issues remain, no doubt, but this is a work in progress...</p>
+
+            <p>To install print.js on a page, put the print.js file in the same directory and this at the end of your document's &#60;head&#62;:</p>
+            <div class="code">
+                &#60;script src="http://code.jquery.com/jquery-latest.js"&#62;&#60;/script&#62;<br />
+                &#60;script src="print.js"&#62;&#60;/script&#62;
+            </div>
+
+            <p>That is it! Let me know if you have any issues. lukas@brown.edu.
+
+
+        </div>
+
+        <div class="txt" style="text-align: center; margin-top: 50px; font-size: 10pt;">
+            Made for <a href="http://htmloutput.charrette.ws">HTML Output</a>
+        </div>
+
+
+
+    </body>
+</html>
